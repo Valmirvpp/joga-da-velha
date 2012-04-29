@@ -17,12 +17,11 @@ public class RmiProviderImpl extends UnicastRemoteObject  implements RmiProvider
 	
 	public RmiProviderImpl() throws RemoteException {
 		super();
-		jogadores = new ArrayList<Jogador>();
-		matriz = new Integer[3][3];
+		doNovo();
 	}
 	
 	public void novoJogo() throws RemoteException {
-		matriz = new Integer[3][3];
+		doNovo();
 	}
 
 	public Resultado efetuarJogada(String posicao,Jogador jogador) throws RemoteException {
@@ -96,6 +95,9 @@ public class RmiProviderImpl extends UnicastRemoteObject  implements RmiProvider
 		}
 	}
 
-	
+	public void doNovo(){
+		matriz = new Integer[3][3];
+		jogadores = new ArrayList<Jogador>();
+	}
 
 }
